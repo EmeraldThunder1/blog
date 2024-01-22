@@ -33,7 +33,7 @@ def main():
                 path = "./build/" + post.split('.')[0]
                 if not os.path.exists(path):
                     os.makedirs(path)
-                with open(f"./path/index.html", "w+") as f:
+                with open(f"./{path}/index.html", "w+") as f:
                     f.write(renderedPost)
 
 main()
