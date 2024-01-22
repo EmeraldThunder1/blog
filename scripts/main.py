@@ -18,6 +18,8 @@ def main():
         postTemplate = Template(f.read())
 
     with open("./build/index.html", "w+") as f:
+        if not os.path.exists("./build"):
+            os.makedirs("./build")
         indexTemplate = Template(open("./templates/index.jinja", "r").read())
         f.write(indexTemplate.render(blogTitle=meta["title"], description=meta["description"]))
 
