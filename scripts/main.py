@@ -15,8 +15,6 @@ def main():
     
     posts = os.listdir("./posts")
     with open("./templates/post.jinja", "r") as f:
-        print("Reading template")
-        print(f.read())
         postTemplate = Template(f.read())
 
     for post in posts:
@@ -32,9 +30,10 @@ def main():
 
                 renderedPost = postTemplate.render(postTitle=title, blogTitle=meta["title"], description=meta["description"], postContent=content)
                 
-                if not os.path.exists(post.split('.')[0]):
-                    os.makedirs(post.split(".")[0])
-                with open(f"{post.split('.')[0]}/index.html", "w+") as f:
+                path = "./build/" + post.split('.')[0]
+                if not os.path.exists(path):
+                    os.makedirs(path)
+                with open(f"./path/index.html", "w+") as f:
                     f.write(renderedPost)
 
 main()
