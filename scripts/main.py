@@ -21,7 +21,7 @@ def main():
         os.makedirs("./build")
     with open("./build/index.html", "w+") as f:
         indexTemplate = Template(open("./templates/index.jinja", "r").read())
-        f.write(indexTemplate.render(blogTitle=meta["title"], description=meta["description"]))
+        f.write(indexTemplate.render(title=meta["title"], description=meta["description"]))
 
     for post in posts:
         if post.endswith('.md'):
