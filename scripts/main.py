@@ -18,6 +18,7 @@ def main():
 
     with open(join(dirname(__file__), "../templates/post.jinja"), "r") as f:
         postTemplate = Template(f.read())
+        print(postTemplate)
 
     for post in posts:
         if post.endswith('.md'):
