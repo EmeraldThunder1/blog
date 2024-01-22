@@ -16,6 +16,7 @@ def main():
     posts = os.listdir("./posts")
     with open("./templates/post.jinja", "r") as f:
         print("Reading template")
+        print(f.read())
         postTemplate = Template(f.read())
 
     for post in posts:
