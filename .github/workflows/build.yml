@@ -38,15 +38,12 @@ jobs:
       run: |
         git add *
         git commit -m "Automated build"
-    - name: Pull latest changes
-      run: |
-        git pull origin deployment --rebase
-
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.PUSH_TOKEN }}
         branch: deployment
+        force: true
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
