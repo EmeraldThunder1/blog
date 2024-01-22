@@ -20,6 +20,7 @@ jobs:
 
     - name: Install dependencies
       run: |
+        ls
         pip install pyyaml beautifulsoup4 markdown jinja2
 
     - name: Run Python script

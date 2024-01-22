@@ -17,7 +17,6 @@ def main():
     with open("./templates/post.jinja", "r") as f:
         print("Reading template")
         postTemplate = Template(f.read())
-        print(f.read())
 
     for post in posts:
         if post.endswith('.md'):
