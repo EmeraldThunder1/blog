@@ -1,5 +1,4 @@
 name: Build and Deploy
-
 on:
   push:
     branches:
@@ -22,6 +21,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install pyyaml beautifulsoup4 markdown jinja2
-          
+
     - name: Run Python script
-      run: python scripts/main.py
+      run: |
+        python scripts/main.py

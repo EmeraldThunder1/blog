@@ -12,6 +12,7 @@ from jinja2 import Template
 def main():
     with open("meta.yml", "r") as f:
         meta = yaml.load(f, Loader=yaml.FullLoader)
+        print(meta)
     
     posts = os.listdir("./posts")
 
