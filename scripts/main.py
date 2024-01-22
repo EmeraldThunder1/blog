@@ -13,6 +13,9 @@ def main():
     with open("meta.yml", "r") as f:
         meta = yaml.load(f, Loader=yaml.FullLoader)
         print(meta)
+
+    with open("test.yml", "w+") as f:
+        yaml.dump(meta, f)
     
     posts = os.listdir("./posts")
 
