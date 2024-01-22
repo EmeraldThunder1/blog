@@ -1,22 +1,27 @@
-name: Build
+name: Build and Deploy
+
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
-      - name: Build
-        run: |
-          python -m pip install --upgrade pip
-          pip install pyyaml
-          pip install beautifulsoup4
-          pip install markdown
-          pip install jinja2
-          python scripts/main.py
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: |
+        pip install pyyaml beautifulsoup4 markdown jinja2
+          
+    - name: Run Python script
+      run: python scripts/main.py
