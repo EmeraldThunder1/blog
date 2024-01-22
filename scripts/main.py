@@ -12,12 +12,9 @@ from jinja2 import Template
 def main():
     with open("meta.yml", "r") as f:
         meta = yaml.load(f, Loader=yaml.FullLoader)
-        print(meta)
-
-    with open("test.yml", "w+") as f:
-        yaml.dump(meta, f)
     
     posts = os.listdir("./posts")
+    print(posts)
 
     with open(join(dirname(__file__), "../templates/post.jinja"), "r") as f:
         postTemplate = Template(f.read())
