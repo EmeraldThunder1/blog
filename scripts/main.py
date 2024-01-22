@@ -14,7 +14,7 @@ def main():
         meta = yaml.load(f, Loader=yaml.FullLoader)
     
     posts = os.listdir("./posts")
-    with open(join(dirname(__file__), "../templates/post.jinja"), "r") as f:
+    with open("templates/post.jinja", "r") as f:
         print("Reading template")
         postTemplate = Template(f.read())
         print(f.read())
