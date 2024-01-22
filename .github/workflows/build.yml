@@ -26,3 +26,20 @@ jobs:
     - name: Run Python script
       run: |
         python scripts/main.py
+
+    - name: Configure Git
+      run: |
+        git config --global user.name "EmeraldThunder1"
+        git config --global user.email "github@dapoole.co.uk"
+    - name: Create deployment branch
+      run: |
+        git checkout -b deployment
+    - name: Stage changes
+      run: |
+        git add *
+        git commit -m "Automated build"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: deployment

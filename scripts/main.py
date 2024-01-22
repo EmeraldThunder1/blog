@@ -17,6 +17,10 @@ def main():
     with open("./templates/post.jinja", "r") as f:
         postTemplate = Template(f.read())
 
+    with open("./build/index.html", "w+") as f:
+        indexTemplate = Template(open("./templates/index.jinja", "r").read())
+        f.write(indexTemplate.render(blogTitle=meta["title"], description=meta["description"]))
+
     for post in posts:
         if post.endswith('.md'):
             with open(f"./posts/{post}", 'r') as f:
